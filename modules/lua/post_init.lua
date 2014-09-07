@@ -19,12 +19,13 @@ if type(snippets) == 'table' then
     ["fnc"] = "%3(--- %4\n-- @function %1\n-- @param %2)\nfunction %1(name)(%2(param))\n\t%0\nend",
     ["fn"] = "function %1(name)(%2(param))\n\t%0\nend",
     ["fna"] = "function(%1(param))\n\t%0\nend",
-    ["lambda"] = "function(%1(param)) %0 end",
+    ["l"] = "function(%1(param)) %0 end",
 
     -- Miscelenious
     ["local"] = "local %1(x) = %2(value)",
     ["--"] = "--[[\n\t%0\n--]]",
     ["---"] = "---[[ %1(name)\n%0\n--]]",
+    ["b"] = "%1(describe)(\"%2\", function()\n\t%0\nend)",
 
     -- if statement
     ["if"] = "if %1(condition) then\n\t%2\n%3(end)",
