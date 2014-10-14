@@ -33,9 +33,9 @@ end
 
 events.connect(events.INITIALIZED, function()
   textredux = require 'textredux'
-  keys.co = textredux.fs.open_file
   require('textredux').hijack()
 
+  keys.co = textredux.fs.open_file
   -- opens files in directory.
   keys["cp"] = {function()
     return textredux.fs.snapopen(
