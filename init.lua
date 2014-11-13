@@ -9,7 +9,7 @@
 
 
 -- new lexer modules go here
---local rs = require("rust")
+local rs = require("rust")
 textadept.file_types.extensions.rs = 'rust'
 
 local fn = require "common"

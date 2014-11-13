@@ -19,7 +19,7 @@ if type(snippets) == 'table' then
     ["fnc"] = "%3(--- %4\n-- @function %1\n-- @param %2)\nfunction %1(name)(%2(param))\n\t%0\nend",
     ["fn"] = "function %1(name)(%2(param))\n\t%0\nend",
     ["fna"] = "function(%1(param))\n\t%0\nend",
-    ["l"] = "function(%1(param)) %0 end",
+    ["l"] = "function(%1(param)) return %0 end",
 
     -- Miscelenious
     ["local"] = "local %1(x) = %2(value)",
@@ -39,7 +39,7 @@ end
 events.connect(events.LEXER_LOADED, function (lang)
   if lang ~= 'lua' then return end
 
---  buffer.tab_width = 4
+  buffer.tab_width = 4
   buffer.use_tabs = false
 end)
 
