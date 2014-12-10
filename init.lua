@@ -15,6 +15,7 @@ textadept.file_types.extensions.rs = 'rust'
 local fn = require "common"
 
 
+
 if not CURSES then
 
   ui.tabs = false -- always hides the tabs
@@ -59,7 +60,7 @@ events.connect(events.INITIALIZED, function()
   keys["cE"] = textadept.editing.select_paragraph
   keys["cP"] = textadept.menu.select_command
 --  keys["cam"] = {textadept.snippets._insert, "michi"}
---
+  keys["cC"] = {textadept.snippets._cancel_current}
 
   keys["aV"] = {function()
     package.path = _USERHOME .. "/modules/textadept-vi/?.lua;" .. package.path

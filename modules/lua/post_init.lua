@@ -3,6 +3,8 @@
 
 local M = {}
 
+textadept.file_types.extensions.ld = 'lua'
+
 if type(snippets) == 'table' then
   snippets.lua = {
 
@@ -26,6 +28,8 @@ if type(snippets) == 'table' then
     ["--"] = "--[[\n\t%0\n--]]",
     ["---"] = "---[[ %1(name)\n%0\n--]]",
     ["b"] = "%1(describe)(\"%2\", function()\n\t%0\nend)",
+    ["r"] = 'require("%1(module)")%0',
+    ["c"] = '%1(name)("%2(str)", %3(fna))',
 
     -- if statement
     ["if"] = "if %1(condition) then\n\t%2\n%3(end)",
