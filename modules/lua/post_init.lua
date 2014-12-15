@@ -43,7 +43,7 @@ end
 events.connect(events.LEXER_LOADED, function (lang)
   if lang ~= 'lua' then return end
 
-  buffer.tab_width = 4
+  buffer.tab_width = 2
   buffer.use_tabs = false
 end)
 
