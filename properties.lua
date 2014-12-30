@@ -33,10 +33,19 @@ buffer.end_at_last_line = false
 _SEMANATIC = true
 
 
+dont = {
+  "perl",
+  "yaml",
+  "markdown",
+}
+
 -- semantic highlighting. NEED base16 themes to work!
 events.connect(events.LEXER_LOADED, function (lang)
   if _SEMANATIC == false then return end
-  if lang == "perl" then return end
+
+  for _, v in ipairs(dont) do
+    if lang == v then return end
+  end
 
   buffer.property['style.operator'] = 'fore:%(color.base0F)'
   buffer.property['style.function'] = 'fore:%(color.base08)'
