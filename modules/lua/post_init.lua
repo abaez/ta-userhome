@@ -5,6 +5,18 @@ local M = {}
 
 textadept.file_types.extensions.ld = 'lua'
 
+local zsh = {
+  'zshrc',
+  'zsh-theme',
+  'zsh',
+  'zshenv'
+}
+
+for _, v in ipairs(zsh) do
+  textadept.file_types.extensions[v] = 'bash'
+end
+
+
 if type(snippets) == 'table' then
   snippets.lua = {
 
