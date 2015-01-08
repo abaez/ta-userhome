@@ -9,8 +9,9 @@
 
 
 -- new lexer modules go here
-local rs = require("rust")
+--local rs = require("rust")
 textadept.file_types.extensions.rs = 'rust'
+textadept.file_types.extensions.toml = 'toml'
 
 local fn = require "common"
 
