@@ -11,6 +11,8 @@
 -- new lexer modules go here
 local rs = require("rust")
 textadept.file_types.extensions.rs = 'rust'
+textadept.file_types.extensions.toml = 'toml'
+textadept.file_types.extensions.yaml = 'yaml'
 
 local fn = require "common"
 
