@@ -7,14 +7,17 @@
 --_G.vi_mode = require 'vi_mode'
 
 
+local fn = require "common"
+
 
 -- new lexer modules go here
 --local rs = require("rust")
 textadept.file_types.extensions.rs = 'rust'
 textadept.file_types.extensions.toml = 'toml'
 
-local fn = require "common"
-
+for _, v in ipairs{'zshrc, zsh-theme', 'zsh', 'zshenv'} do
+  textadept.file_types.extensions[v] = 'bash'
+end
 
 
 if not CURSES then
