@@ -1,9 +1,17 @@
--- ansi_c snippets.
+--- snippets and settings for ansi_c
+-- @author Alejandro Baez <alejan.baez@gmail.com>
+-- @copyright 2015
+-- @license MIT (see LICENSE)
+-- @module post_ansi_c
+
 if type(snippets) == 'table' then
   snippets.ansi_c = {
+
+    -- functions and structs
     fn = '%1(T) %2(name)(%3(arguments)) \n{\n\t%0\n}',
     struct = "struct %1(name) {\n\t%0\n} %2( object_name);",
-
+    enum = "enum %1(name) {\n\t%0\n}",
+    t = "typedef %1(type) %2(alias);%0",
 
     -- random
     ['in'] = '#include %1(<%0>)',
@@ -20,31 +28,13 @@ if type(snippets) == 'table' then
     ['else'] = 'else {\n\t%0\n}',
     ['switch'] = 'switch (%1(expr)) {\n%1\ndefault:\n\t%0\n}',
     ['case'] = 'case %1(expr):\n\t%2\n%0',
-
   }
 
   snippets.linux = snippets.ansi_c
 end
 
-function linux_style()
-  buffer.tab_width = 8
-  buffer.use_tabs = true
-  buffer.edge_column = 79
-end
-
-function std()
-  buffer.tab_width = 2
-  buffer.use_tabs = false
-end
-
-
 events.connect(events.LEXER_LOADED, function (lang)
   if lang ~= 'ansi_c' then return end
-
-end)
-
-events.connect(events.INITIALIZED, function()
-  keys['cal'] = function()
-    linux_style()
-  end
+  buffer.tab_width = 2
+  buffer.use_tabs = false
 end)
