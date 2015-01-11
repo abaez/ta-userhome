@@ -1,12 +1,27 @@
---[[
-    Use for buffer properties or view releated properties
---]]
+--- buffer properties or view related settings
+-- @author Alejandro Baez <alejan.baez@gmail.com>
+-- @copyright 2015
+-- @license MIT (see LICENSE)
+-- @module properties
 
 local ct = require("common.themer")
+
+-- enable semantic highlighting
+_SEMANATIC = true
+
+--- holds languages NOT to use semantic highlighting if semantic is on.
+-- @table dont
+local dont = {
+  perl = true,
+  yaml = true,
+  markdown = true,
+}
+
 -- 4 spaces as a default
 --buffer.tab_width = 4
 --buffer.use_tabs = false
 
+-- column width settings
 buffer.edge_column = 79
 buffer.edge_mode = buffer.EDGE_LINE -- line marker
 --buffer.edge_mode = buffer.EDGE_BACKGROUND -- colors all after edge to colour
@@ -30,22 +45,10 @@ buffer.end_at_last_line = false
 
 --buffer.eol_mode = buffer.EOL_LF
 
-_SEMANATIC = true
-
-
-dont = {
-  "perl",
-  "yaml",
-  "markdown",
-}
-
 -- semantic highlighting. NEED base16 themes to work!
 events.connect(events.LEXER_LOADED, function (lang)
   if _SEMANATIC == false then return end
-
-  for _, v in ipairs(dont) do
-    if lang == v then return end
-  end
+  if dont.lang then return end
 
   buffer.property['style.operator'] = 'fore:%(color.base0F)'
   buffer.property['style.function'] = 'fore:%(color.base08)'
@@ -54,8 +57,6 @@ events.connect(events.LEXER_LOADED, function (lang)
   buffer.property['style.number'] = 'fore:%(color.base0E)'
   buffer.property['style.constant'] = 'fore:%(color.base0A)'
 
-
   buffer.property['style.keyword'] = ct.background == '-light' and
     'fore:%(color.base02)' or 'fore:%(color.base05)'
-
 end)

@@ -1,3 +1,10 @@
+--- default initializer
+-- @author Alejandro Baez <alejan.baez@gmail.com>
+-- @copyright 2015
+-- @license MIT (see LICENSE)
+-- @module init
+
+
 -- enable vim mode.
 --package.path = _USERHOME .. "/modules/textadept-vi/?.lua;" .. package.path
 --package.cpath = _USERHOME .. "/modules/.textadept/textadept-vi/?.so;" .. package.cpath

@@ -1,10 +1,11 @@
---- Alejandro Baez's default post_init for lua
--- 2013,
+--- snippets and settings for lua
+-- @author Alejandro Baez <alejan.baez@gmail.com>
+-- @copyright 2015
+-- @license MIT (see LICENSE)
+-- @module post_lua
 
-local M = {}
-
+-- extensions
 textadept.file_types.extensions.ld = 'lua'
-
 
 if type(snippets) == 'table' then
   snippets.lua = {
@@ -49,4 +50,4 @@ events.connect(events.LEXER_LOADED, function (lang)
 end)
 
 
-return M
+return {}
