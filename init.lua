@@ -11,6 +11,7 @@
 --_G.vi_mode = require 'vi_mode'
 
 local fn = require "common"
+_M.ctags = require("ctags")
 
 -- new lexer modules go here
 textadept.file_types.extensions.rs = 'rust'
@@ -64,6 +65,12 @@ events.connect(events.INITIALIZED, function()
       with_directory = (buffer.filename or ''):match('^.+[//]')
     })
   end
+
+  -- ctags module keys
+  keys['a&'] = _M.ctags.goto_tag
+  keys['a,'] = {_M.ctags.goto_tag, nil, true} -- back
+  keys['a.'] = {_M.ctags.goto_tag, nil, false} -- forward
+  keys['ac'] = {textadept.editing.autocomplete, 'ctag'}
 end)
 
 

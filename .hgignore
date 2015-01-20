@@ -6,3 +6,4 @@ modules/go
 modules/gist
 lexers
 themes
+tags
