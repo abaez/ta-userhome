@@ -10,7 +10,7 @@ local ct = require("common.themer")
 _SEMANATIC = true
 
 --- holds languages NOT to use semantic highlighting if semantic is on.
--- @table dont
+-- @param `language = true`: language being any one you choose.
 local dont = {
   perl = true,
   yaml = true,
@@ -27,7 +27,6 @@ buffer.edge_mode = buffer.EDGE_LINE -- line marker
 --buffer.edge_mode = buffer.EDGE_BACKGROUND -- colors all after edge to colour
 --buffer.edge_colour = "0x1132FF"
 --buffer.edge_colour = "0xFF00FF"
-buffer.edge_colour = buffer.property_int["color.base0A"]
 
 -- multi select
 buffer.multiple_selection = true
@@ -46,9 +45,11 @@ buffer.end_at_last_line = false
 --buffer.eol_mode = buffer.EOL_LF
 
 -- semantic highlighting. NEED base16 themes to work!
-events.connect(events.LEXER_LOADED, function (lang)
+events.connect(events.LEXER_LOADED, function(lang)
   if _SEMANATIC == false then return end
   if dont[lang] then return end
+
+  buffer.edge_colour = buffer.property_int["color.base0A"]
 
   buffer.property['style.operator']   = 'fore:%(color.base0F)'
   buffer.property['style.function']   = 'fore:%(color.base08)'

@@ -4,12 +4,6 @@
 -- @license MIT (see LICENSE)
 -- @module init
 
-
--- enable vim mode.
---package.path = _USERHOME .. "/modules/textadept-vi/?.lua;" .. package.path
---package.cpath = _USERHOME .. "/modules/.textadept/textadept-vi/?.so;" .. package.cpath
---_G.vi_mode = require 'vi_mode'
-
 local fn = require "common"
 _M.ctags = require("ctags")
 
@@ -49,7 +43,7 @@ events.connect(events.INITIALIZED, function()
     local tavi = _USERHOME .. "/modules/textadept-vi"
     package.path = tavi .. "/?.lua;" .. package.path
     package.cpath = tavi .. "/?.so;" .. package.cpath
-    _G.vi_mode = require 'vi_mode'
+    _G.vi_mode = require('vi_mode')
   end}
 
   local ui_ce = ui.command_entry
