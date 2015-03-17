@@ -15,6 +15,7 @@ local dont = {
   perl = true,
   yaml = true,
   markdown = true,
+  toml = true
 }
 
 -- 4 spaces as a default
@@ -48,6 +49,7 @@ buffer.end_at_last_line = false
 events.connect(events.LEXER_LOADED, function(lang)
   if _SEMANATIC == false then return end
   if dont[lang] then return end
+  if CURSES then return end
 
   buffer.edge_colour = buffer.property_int["color.base0A"]
 

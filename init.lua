@@ -4,7 +4,7 @@
 -- @license MIT (see LICENSE)
 -- @module init
 
-local fn = require "common"
+local fn = require("common")
 _M.ctags = require("ctags")
 
 -- new lexer modules go here
@@ -15,7 +15,7 @@ for _, v in ipairs{'zshrc, zsh-theme', 'zsh', 'zshenv'} do
   textadept.file_types.extensions[v] = 'bash'
 end
 
-if not CURSES then
+events.connect(events.INITIALIZED, function()
   ui.tabs = false -- always hides the tabs
 
 --  textadept.editing.INDIC_BRACEMATCH
@@ -23,10 +23,8 @@ if not CURSES then
   textadept.editing.TYPEOVER_CHARS = true
   textadept.editing.STRIP_TRAILING_SPACES = true
   textadept.editing.AUTOCOMPLETE_ALL = false
-end
 
-events.connect(events.INITIALIZED, function()
-  textredux = require 'textredux'
+  textredux = require('textredux')
   textredux.hijack()
 
   keys.co = textredux.fs.open_file
