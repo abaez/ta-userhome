@@ -47,7 +47,7 @@ buffer.end_at_last_line = false
 
 -- semantic highlighting. NEED base16 themes to work!
 events.connect(events.LEXER_LOADED, function(lang)
-  if _SEMANATIC == false then return end
+  if not _SEMANATIC then return end
   if dont[lang] then return end
   if CURSES then return end
 
