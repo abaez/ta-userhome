@@ -1,9 +1,5 @@
 session
-modules/textredux
-modules/markdown
-modules/go
-modules/gist
-modules/vi
+modules
 lexers
 themes
 tags

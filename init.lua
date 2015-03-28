@@ -6,6 +6,7 @@
 
 local fn = require("common")
 _M.ctags = require("ctags")
+require("extend")
 
 -- new lexer modules go here
 textadept.file_types.extensions.rs = 'rust'
