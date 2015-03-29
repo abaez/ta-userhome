@@ -8,12 +8,14 @@ local fn = require("common")
 _M.ctags = require("ctags")
 require("extend")
 
+
 -- new lexer modules go here
-textadept.file_types.extensions.rs = 'rust'
-textadept.file_types.extensions.toml = 'toml'
-textadept.file_types.extensions.yml = 'yaml'
+textadept.file_types.extensions.rs    = 'rust'
+textadept.file_types.extensions.toml  = 'toml'
+textadept.file_types.extensions.ld    = "lua"
+textadept.file_types.extensions.yml   = 'yaml'
 for _, v in ipairs{'zshrc, zsh-theme', 'zsh', 'zshenv'} do
-  textadept.file_types.extensions[v] = 'bash'
+  textadept.file_types.extensions[v]  = 'bash'
 end
 
 events.connect(events.INITIALIZED, function()
@@ -39,7 +41,7 @@ events.connect(events.INITIALIZED, function()
   keys["cP"] = textadept.menu.select_command
   keys["cC"] = {textadept.snippets._cancel_current}
   keys["aV"] = {function()
-    local tavi = _USERHOME .. "/modules/textadept-vi"
+    local tavi = _USERHOME .. "/modules/vi"
     package.path = tavi .. "/?.lua;" .. package.path
     package.cpath = tavi .. "/?.so;" .. package.cpath
     _G.vi_mode = require('vi_mode')
