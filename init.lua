@@ -12,6 +12,7 @@ require("extend")
 -- new lexer modules go here
 textadept.file_types.extensions.rs    = 'rust'
 textadept.file_types.extensions.toml  = 'toml'
+textadept.file_types.extensions.lock  = 'toml'
 textadept.file_types.extensions.ld    = "lua"
 textadept.file_types.extensions.yml   = 'yaml'
 for _, v in ipairs{'zshrc, zsh-theme', 'zsh', 'zshenv'} do
