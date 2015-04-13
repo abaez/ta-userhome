@@ -6,7 +6,6 @@
 
 local fn = require("common")
 _M.ctags = require("ctags")
-require("extend")
 
 
 -- new lexer modules go here
@@ -68,5 +67,3 @@ events.connect(events.INITIALIZED, function()
   keys['a.'] = {_M.ctags.goto_tag, nil, false} -- forward
   keys['ac'] = {textadept.editing.autocomplete, 'ctag'}
 end)
-
-
