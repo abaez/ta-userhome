@@ -1,5 +1,5 @@
 --- buffer properties or view related settings
--- @author Alejandro Baez <alejan.baez@gmail.com>
+-- @author [Alejandro Baez](https://twitter.com/a_baez)
 -- @copyright 2015
 -- @license MIT (see LICENSE)
 -- @module properties
