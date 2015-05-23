@@ -8,15 +8,26 @@ local fn = require("common")
 _M.ctags = require("ctags")
 --require("hastebin")
 
--- new lexer modules go here
-textadept.file_types.extensions.rs    = 'rust'
-textadept.file_types.extensions.toml  = 'toml'
-textadept.file_types.extensions.lock  = 'toml'
-textadept.file_types.extensions.ld    = "lua"
-textadept.file_types.extensions.yml   = 'yaml'
-textadept.file_types.extensions.moon  = 'moonscript'
-for _, v in ipairs{'zshrc, zsh-theme', 'zsh', 'zshenv'} do
-  textadept.file_types.extensions[v]  = 'bash'
+--- new lexer modules go here.
+-- @key: extension
+-- @value: language
+local lexer_types = {
+  rs = 'rust',
+  toml = 'toml',
+  ld = 'lua',
+  yml = 'yaml',
+  moon = 'moonscript',
+  etlua = 'etlua',
+
+  -- zsh
+  zshrc = 'bash',
+  ['zsh-theme'] = 'bash',
+  zsh = 'bash',
+  zshenv = 'bash'
+}
+
+for k, v in pairs(lexer_types) do
+  textadept.file_types.extensions[k] = v
 end
 
 events.connect(events.INITIALIZED, function()
