@@ -7,6 +7,7 @@
 local fn = require("common")
 _M.ctags = require("ctags")
 --require("hastebin")
+require("lapis")
 
 --- new lexer modules go here.
 -- @key: extension
