@@ -7,29 +7,8 @@
 local fn = require("common")
 _M.ctags = require("ctags")
 --require("hastebin")
-require("lapis")
 
---- new lexer modules go here.
--- @key: extension
--- @value: language
-local lexer_types = {
-  rs = 'rust',
-  toml = 'toml',
-  ld = 'lua',
-  yml = 'yaml',
-  moon = 'moonscript',
-  etlua = 'etlua',
-
-  -- zsh
-  zshrc = 'bash',
-  ['zsh-theme'] = 'bash',
-  zsh = 'bash',
-  zshenv = 'bash'
-}
-
-for k, v in pairs(lexer_types) do
-  textadept.file_types.extensions[k] = v
-end
+require("extensions")
 
 events.connect(events.INITIALIZED, function()
   ui.tabs = false -- always hides the tabs
