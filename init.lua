@@ -39,6 +39,7 @@ events.connect(events.INITIALIZED, function()
     _G.vi_mode = require('vi_mode')
   end}
 
+
   local ui_ce = ui.command_entry
   keys['ce'] = {ui_ce.enter_mode, 'lua_command'}
   keys.lua_command = {
@@ -58,4 +59,13 @@ events.connect(events.INITIALIZED, function()
   keys['a,'] = {_M.ctags.goto_tag, nil, true} -- back
   keys['a.'] = {_M.ctags.goto_tag, nil, false} -- forward
   keys['ac'] = {textadept.editing.autocomplete, 'ctag'}
+
+  -- next and previous view
+  local view_next, view_prev = {ui.goto_view, 1, true}, {ui.goto_view, -1, true}
+  local view_splith, view_splitv = {view.split, view}, {view.split, view, true}
+
+  if not CURSES then
+    keys[not OSX and 'an' or 'ca\t'] = view_next
+    keys[not OSX and 'ap' or 'cas\t'] = view_prev
+  end
 end)
