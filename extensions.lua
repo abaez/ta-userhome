@@ -19,6 +19,9 @@ local auto = {
   zsh  = 'bash',
   zshenv = 'bash',
 
+  -- config files
+  service = 'ini',
+
   -- Somefile
   Tupfile = 'bash',
   Vagrantfile = 'ruby',
