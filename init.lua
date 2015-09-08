@@ -10,6 +10,13 @@ _M.ctags = require("ctags")
 
 require("extensions")
 
+if CURSES then
+  local tavi = _USERHOME .. "/modules/vi"
+  package.path = tavi .. "/?.lua;" .. package.path
+  package.cpath = tavi .. "/?.so;" .. package.cpath
+  _G.vi_mode = require('vi_mode')
+end
+
 events.connect(events.INITIALIZED, function()
   ui.tabs = false -- always hides the tabs
 
