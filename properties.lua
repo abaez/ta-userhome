@@ -4,8 +4,6 @@
 -- @license MIT (see LICENSE)
 -- @module properties
 
-local ct = require("common.themer")
-
 -- enable semantic highlighting
 _SEMANATIC = true
 
@@ -60,6 +58,6 @@ events.connect(events.LEXER_LOADED, function(lang)
   buffer.property['style.number']     = 'fore:%(color.base0E)'
   buffer.property['style.constant']   = 'fore:%(color.base0A)'
 
-  buffer.property['style.keyword']    = ct.background == '-light' and
+  buffer.property['style.keyword']    = CURRENT_BACKGROUND == '-light' and
     'fore:%(color.base02)' or 'fore:%(color.base05)'
 end)

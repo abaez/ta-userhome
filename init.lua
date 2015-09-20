@@ -4,6 +4,12 @@
 -- @license MIT (see LICENSE)
 -- @module init
 
+-- used by themer to change font and theme
+CURRENT_FONT = "Fantasque Sans Mono"
+CURRENT_FONTSIZE = 13
+CURRENT_THEME = "base16-atelierlakeside-light"
+--CURRENT_BACKGROUND = "-light"
+
 local fn = require("common")
 _M.ctags = require("ctags")
 --require("hastebin")
