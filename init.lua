@@ -9,8 +9,9 @@ CURRENT_FONT = "Fantasque Sans Mono"
 CURRENT_FONTSIZE = 13
 CURRENT_THEME = "base16-atelierlakeside-light"
 --CURRENT_BACKGROUND = "-light"
+_G._RUSTFMT = true
 
-local fn = require("common")
+require("common")
 _M.ctags = require("ctags")
 --require("hastebin")
 
@@ -52,7 +53,6 @@ events.connect(events.INITIALIZED, function()
     _G.vi_mode = require('vi_mode')
   end}
 
-
   local ui_ce = ui.command_entry
   keys['ce'] = {ui_ce.enter_mode, 'lua_command'}
   keys.lua_command = {
@@ -74,8 +74,8 @@ events.connect(events.INITIALIZED, function()
   keys['ac'] = {textadept.editing.autocomplete, 'ctag'}
 
   -- next and previous view
-  local view_next, view_prev = {ui.goto_view, 1, true}, {ui.goto_view, -1, true}
-  local view_splith, view_splitv = {view.split, view}, {view.split, view, true}
+  local view_next, view_prev = {ui.goto_view, 1, true},
+                               {ui.goto_view, -1, true}
 
   if not CURSES then
     keys[not OSX and 'an' or 'ca\t'] = view_next
