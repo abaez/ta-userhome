@@ -4,83 +4,103 @@
 -- @license MIT (see LICENSE)
 -- @module init
 
--- used by themer to change font and theme
+---[=[ global pre-module settings
+
+-- themer
 CURRENT_FONT = "Fantasque Sans Mono"
 CURRENT_FONTSIZE = 13
 CURRENT_THEME = "base16-atelierlakeside-light"
 --CURRENT_BACKGROUND = "-light"
-_G._RUSTFMT = true
 
-require("common")
+-- languages
+_G._RUSTFMT = true -- enable rustfmt
+--]=]
+
+---[=[ modules
+
+require("extensions") -- holds all extra extensions to read
 _M.ctags = require("ctags")
+require("common")
 require("hastebin")
+local textredux = require("textredux")
 
-require("extensions")
-
----[[
+--[[ textadept-vi for curses
 if CURSES then
   local tavi = _USERHOME .. "/modules/vi"
   package.path = tavi .. "/?.lua;" .. package.path
   package.cpath = tavi .. "/?.so;" .. package.cpath
   _G.vi_mode = require('vi_mode')
-end --]]
+end
+--]]
+--]=]
 
-events.connect(events.INITIALIZED, function()
-  ui.tabs = false -- always hides the tabs
 
---  textadept.editing.INDIC_BRACEMATCH
-  textadept.editing.AUTOPAIR = true
-  textadept.editing.TYPEOVER_CHARS = true
-  textadept.editing.STRIP_TRAILING_SPACES = true
-  textadept.editing.AUTOCOMPLETE_ALL = false
+---[=[ module settings
 
-  textredux = require('textredux')
-  textredux.hijack()
+-- textredux configuration
+textredux.hijack()
+--]=]
 
-  keys.co = textredux.fs.open_file
-  -- opens files in directory.
-  keys["cp"] = {function()
-    return textredux.fs.snapopen(
-      (buffer.filename or ''):match('^.+[//]'))
-  end}
-  keys["cu"] = {function() return textredux.fs.snapopen(_USERHOME)end}
-  keys["cE"] = textadept.editing.select_paragraph
-  keys["cP"] = textadept.menu.select_command
-  keys["cC"] = {textadept.snippets._cancel_current}
-  keys["aV"] = {function()
-    local tavi = _USERHOME .. "/modules/vi"
-    package.path = tavi .. "/?.lua;" .. package.path
-    package.cpath = tavi .. "/?.so;" .. package.cpath
-    _G.vi_mode = require('vi_mode')
-  end}
 
-  --[[
-  local ui_ce = ui.command_entry
-  keys['ce'] = {ui_ce.enter_mode, 'lua_command'}
-  keys.lua_command = {
-    ['\t'] = ui_ce.complete_lua,
-    ['\n'] = {ui_ce.finish_mode, ui_ce.execute_lua}
-  } --]]
+---[=[ default settings
 
-  -- makes a new file with location
-  keys['can'] = function()
-    io.open_file(ui.dialogs.filesave{
-      with_directory = (buffer.filename or ''):match('^.+[//]')
-    })
-  end
+-- ui configurations
+ui.tabs = false -- always hides the tabs
 
-  -- ctags module keys
-  keys['a&'] = _M.ctags.goto_tag
-  keys['a,'] = {_M.ctags.goto_tag, nil, true} -- back
-  keys['a.'] = {_M.ctags.goto_tag, nil, false} -- forward
-  keys['ac'] = {textadept.editing.autocomplete, 'ctag'}
+-- editing settings
+textadept.editing.AUTOPAIR = true
+textadept.editing.TYPEOVER_CHARS = true
+textadept.editing.STRIP_TRAILING_SPACES = true
+textadept.editing.AUTOCOMPLETE_ALL = false
+--]=]
 
-  -- next and previous view
-  local view_next, view_prev = {ui.goto_view, 1, true},
-                               {ui.goto_view, -1, true}
+---[=[ keys
 
-  if not CURSES then
-    keys[not OSX and 'an' or 'ca\t'] = view_next
-    keys[not OSX and 'ap' or 'cas\t'] = view_prev
-  end
-end)
+keys.co = textredux.fs.open_file
+
+-- opens files in directory.
+keys["cp"] = {function()
+  return textredux.fs.snapopen(
+    (buffer.filename or ''):match('^.+[//]'))
+end}
+keys["cu"] = {function() return textredux.fs.snapopen(_USERHOME)end}
+keys["cE"] = textadept.editing.select_paragraph
+keys["cP"] = textadept.menu.select_command
+keys["cC"] = {textadept.snippets._cancel_current}
+keys["aV"] = {function()
+  local tavi = _USERHOME .. "/modules/vi"
+  package.path = tavi .. "/?.lua;" .. package.path
+  package.cpath = tavi .. "/?.so;" .. package.cpath
+  _G.vi_mode = require('vi_mode')
+end}
+
+-- makes a new file with location
+keys['can'] = function()
+  io.open_file(ui.dialogs.filesave{
+    with_directory = (buffer.filename or ''):match('^.+[//]')
+  })
+end
+
+-- ctags module keys
+keys['a&'] = _M.ctags.goto_tag
+keys['a,'] = {_M.ctags.goto_tag, nil, true} -- back
+keys['a.'] = {_M.ctags.goto_tag, nil, false} -- forward
+keys['ac'] = {textadept.editing.autocomplete, 'ctag'}
+
+--[[
+local ui_ce = ui.command_entry
+keys['ce'] = {ui_ce.enter_mode, 'lua_command'}
+keys.lua_command = {
+  ['\t'] = ui_ce.complete_lua,
+  ['\n'] = {ui_ce.finish_mode, ui_ce.execute_lua}
+} --]]
+
+-- next and previous view
+local view_next, view_prev = {ui.goto_view, 1, true},
+                             {ui.goto_view, -1, true}
+
+if not CURSES then
+  keys[not OSX and 'an' or 'ca\t'] = view_next
+  keys[not OSX and 'ap' or 'cas\t'] = view_prev
+end
+--]=]
