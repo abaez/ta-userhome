@@ -20,8 +20,9 @@ local dont = {
 
 -- Column Width
 buffer.edge_column = 79
-buffer.edge_mode = buffer.EDGE_LINE -- line marker
---buffer.edge_mode = buffer.EDGE_BACKGROUND -- colors all after edge to colour
+--buffer.edge_mode   = buffer.EDGE_LINE -- line marker
+buffer.edge_mode = buffer.EDGE_BACKGROUND -- colors all after edge to colour
+--buffer.edge_colour = 0x0f03ff
 
 
 -- Scrolling
