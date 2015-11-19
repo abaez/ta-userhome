@@ -13,7 +13,7 @@ _G._RUSTFMT = true
 
 require("common")
 _M.ctags = require("ctags")
---require("hastebin")
+require("hastebin")
 
 require("extensions")
 
