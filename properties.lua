@@ -18,6 +18,13 @@ local dont = {
 }
 
 
+-- Wrap
+buffer.wrap_mode = buffer.WRAP_WORD
+buffer.wrap_indent_mode = buffer.WRAPINDENT_INDENT
+buffer.wrap_visual_flags = buffer.WRAPVISUALFLAG_END
+buffer.wrap_visual_flags_location = buffer.WRAPVISUALFLAGLOC_END_BY_TEXT
+
+
 -- Column Width
 buffer.edge_column = 79
 --buffer.edge_mode   = buffer.EDGE_LINE -- line marker
