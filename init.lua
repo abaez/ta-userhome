@@ -13,7 +13,8 @@ CURRENT_THEME = "base16-atelierlakeside-light"
 --CURRENT_BACKGROUND = "-light"
 
 -- languages
-_G._RUSTFMT = true -- enable rustfmt
+_G._RUSTFMT = true  -- enable rustfmt
+_G._PM      = false -- disable package manager. Default == true.
 --]=]
 
 
@@ -22,8 +23,12 @@ _G._RUSTFMT = true -- enable rustfmt
 require("extensions") -- holds all extra extensions to read
 _M.ctags = require("ctags")
 require("common")
-require("hastebin")
 local textredux = require("textredux")
+
+-- package manager modules
+if _PM then
+  require("hastebin")
+end
 
 --[[ textadept-vi for curses
 if CURSES then
