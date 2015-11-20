@@ -4,20 +4,6 @@
 -- @license MIT (see LICENSE)
 -- @module properties
 
---- ## Semantic
--- enable semantic highlighting
-_SEMANATIC = true
-
---- holds languages NOT to use semantic highlighting if semantic is on.
--- @table dont
--- @field `language = true`: language being any one you choose.
-local dont = {
-  perl = true,
-  yaml = true,
-  markdown = true,
-  toml = true
-}
-
 
 --- ## Wrap
 buffer.wrap_mode = buffer.WRAP_WORD
@@ -68,6 +54,20 @@ buffer.mouse_selection_rectangular_switch = true
 --- ## Annotations.
 buffer.annotation_visible = buffer.ANNOTATION_BOXED
 
+
+--- ## Semantic
+-- enable semantic highlighting
+_SEMANATIC = true
+
+--- holds languages NOT to use semantic highlighting if semantic is on.
+-- @table dont
+-- @field `language = true`: language being any one you choose.
+local dont = {
+  perl = true,
+  yaml = true,
+  markdown = true,
+  toml = true
+}
 
 -- semantic highligting. NEED base16 themes to work!
 events.connect(events.LEXER_LOADED, function(lang)
