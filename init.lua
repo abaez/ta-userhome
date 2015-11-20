@@ -4,8 +4,7 @@
 -- @license MIT (see LICENSE)
 -- @module init
 
----[=[ global pre-module settings
-
+--- ## Global pre-module settings
 -- themer
 CURRENT_FONT = "Fantasque Sans Mono"
 CURRENT_FONTSIZE = 13
@@ -15,11 +14,9 @@ CURRENT_THEME = "base16-atelierlakeside-light"
 -- languages
 _G._RUSTFMT = true  -- enable rustfmt
 _G._PM      = false -- disable package manager. Default == true.
---]=]
 
 
----[=[ modules
-
+--- ## Modules
 require("extensions") -- holds all extra extensions to read
 _M.ctags = require("ctags")
 require("common")
@@ -38,11 +35,9 @@ if CURSES then
   _G.vi_mode = require('vi_mode')
 end
 --]]
---]=]
 
 
----[=[ module settings
-
+--- ## Module Settings
 -- textredux configuration
 textredux.hijack()
 keys.co = textredux.fs.open_file
@@ -67,11 +62,9 @@ keys['a&'] = _M.ctags.goto_tag
 keys['a,'] = {_M.ctags.goto_tag, nil, true} -- back
 keys['a.'] = {_M.ctags.goto_tag, nil, false} -- forward
 keys['ac'] = {textadept.editing.autocomplete, 'ctag'}
---]=]
 
 
----[=[ default settings
-
+--- ## Default Settings
 -- ui configurations
 ui.tabs = false -- always hides the tabs
 
@@ -108,4 +101,3 @@ if not CURSES then
   keys[not OSX and 'an' or 'ca\t'] = view_next
   keys[not OSX and 'ap' or 'cas\t'] = view_prev
 end
---]=]

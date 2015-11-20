@@ -4,6 +4,7 @@
 -- @license MIT (see LICENSE)
 -- @module properties
 
+--- ## Semantic
 -- enable semantic highlighting
 _SEMANATIC = true
 
@@ -18,21 +19,21 @@ local dont = {
 }
 
 
--- Wrap
+--- ## Wrap
 buffer.wrap_mode = buffer.WRAP_WORD
 buffer.wrap_indent_mode = buffer.WRAPINDENT_INDENT
 buffer.wrap_visual_flags = buffer.WRAPVISUALFLAG_END
 buffer.wrap_visual_flags_location = buffer.WRAPVISUALFLAGLOC_END_BY_TEXT
 
 
--- Column Width
+--- ## Column Width
 buffer.edge_column = 79
 --buffer.edge_mode   = buffer.EDGE_LINE -- line marker
 buffer.edge_mode = buffer.EDGE_BACKGROUND -- colors all after edge to colour
 --buffer.edge_colour = 0x0f03ff
 
 
--- Scrolling
+--- ## Scrolling
 buffer:set_x_caret_policy(buffer.CARET_SLOP, 20)
 buffer:set_y_caret_policy(buffer.CARET_SLOP + buffer.CARET_STRICT +
                           buffer.CARET_EVEN, 1)
@@ -43,7 +44,7 @@ buffer.v_scroll_bar = false
 buffer.end_at_last_line = false
 
 
--- Tabs and Indentation Guides.
+--- ## Tabs and Indentation Guides.
 -- Note: tab and indentation settings apply to individual buffers.
 buffer.tab_width = 2
 buffer.use_tabs = false
@@ -52,7 +53,7 @@ buffer.back_space_un_indents = true
 buffer.indentation_guides = not CURSES and buffer.IV_LOOKBOTH or buffer.IV_NONE
 
 
--- Multiple Selection and Virtual Space
+--- ## Multiple Selection and Virtual Space
 buffer.multiple_selection = true
 buffer.additional_selection_typing = true
 --buffer.multi_paste = buffer.MULTIPASTE_EACH
@@ -64,7 +65,7 @@ buffer.mouse_selection_rectangular_switch = true
 --buffer.additional_carets_visible = false
 
 
--- Annotations.
+--- ## Annotations.
 buffer.annotation_visible = buffer.ANNOTATION_BOXED
 
 
