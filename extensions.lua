@@ -6,7 +6,7 @@
 
 --- holds all the file extensions to extend for.
 local auto = {
-  rs = 'rust',
+  rs   = 'rust',
   toml = 'toml',
   lock = 'toml',
   ld   = 'lua',
@@ -14,18 +14,22 @@ local auto = {
   moon = 'moonscript',
 
   -- zsh
-  zshrc = 'bash',
+  zshrc         = 'bash',
   ['zsh-theme'] = 'bash',
-  zsh  = 'bash',
-  zshenv = 'bash',
+  zsh           = 'bash',
+  zshenv        = 'bash',
 
   -- config files
   service = 'ini',
 
   -- Somefile
-  Tupfile = 'bash',
+  Tupfile     = 'bash',
   Vagrantfile = 'ruby',
   Dockerfile  = 'bash',
+  lakefile    = 'lua',
+
+  -- extra shortcuts
+  luadoc    = 'lua',
 }
 
 
