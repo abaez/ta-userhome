@@ -94,10 +94,15 @@ keys.lua_command = {
   ['\n'] = {ui_ce.finish_mode, ui_ce.execute_lua}
 } --]]
 
--- next and previous view
-local view_next, view_prev = {ui.goto_view, 1, true},
-                             {ui.goto_view, -1, true}
-if not CURSES then
-  keys[not OSX and 'an' or 'ca\t'] = view_next
-  keys[not OSX and 'ap' or 'cas\t'] = view_prev
-end
+
+--- connect view switch with buffer switch keys.
+-- A pair of events for changing view or buffer with the same keys.
+events.connect(events.VIEW_NEW, function()
+  keys[not CURSES and 'an' or 'mn'] = {ui.goto_view, 1, true}
+  keys[not CURSES and 'ap' or 'mp'] = {ui.goto_view, -1, true}
+end)
+events.connect(events.BUFFER_NEW, function()
+  if #_VIEWS ~= 1 then return end
+  keys[not CURSES and 'an' or 'mn'] = {view.goto_buffer, view, 1, true}
+  keys[not CURSES and 'ap' or 'mp'] = {view.goto_buffer, view, -1, true}
+end)
