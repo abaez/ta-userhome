@@ -11,6 +11,8 @@ buffer.wrap_indent_mode = buffer.WRAPINDENT_INDENT
 buffer.wrap_visual_flags = buffer.WRAPVISUALFLAG_END
 buffer.wrap_visual_flags_location = buffer.WRAPVISUALFLAGLOC_END_BY_TEXT
 
+--- ## Fold Margin
+buffer.margin_width_n[2] = not CURSES and 12 or 0
 
 --- ## Column Width
 buffer.edge_column = 79
