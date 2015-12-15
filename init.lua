@@ -4,19 +4,9 @@
 -- @license MIT (see LICENSE)
 -- @module init
 
---- ## Global pre-module settings
--- themer
-CURRENT_FONT = "Fantasque Sans Mono"
-CURRENT_FONTSIZE = 13
-CURRENT_THEME = "base16-atelierlakeside-light"
---CURRENT_BACKGROUND = "-light"
-
--- languages
-_G._RUSTFMT = true  -- enable rustfmt
-_G._PM      = false -- disable package manager. Default == true.
-
 
 --- ## Modules
+require("const") -- global configured constants for other modules to read.
 require("extensions") -- holds all extra extensions to read
 _M.ctags = require("ctags")
 require("common")
@@ -56,6 +46,7 @@ keys["aV"] = {function()
   package.cpath = tavi .. "/?.so;" .. package.cpath
   _G.vi_mode = require('vi_mode')
 end}
+
 
 -- ctags module keys
 keys['a&'] = _M.ctags.goto_tag

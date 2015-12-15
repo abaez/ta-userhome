@@ -4,3 +4,5 @@ lexers
 themes
 tags
 docs
+
+global\.lua
