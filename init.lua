@@ -6,7 +6,7 @@
 
 
 --- ## Modules
-require("const") -- global configured constants for other modules to read.
+require("global") -- global configured constants for other modules to read.
 require("extensions") -- holds all extra extensions to read
 _M.ctags = require("ctags")
 require("common")
