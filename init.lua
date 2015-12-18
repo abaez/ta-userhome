@@ -9,7 +9,8 @@
 require("global") -- global configured constants for other modules to read.
 require("extensions") -- holds all extra extensions to read
 _M.ctags = require("ctags")
-require("common")
+require("common") -- extra functions or modules to make textadept greater. ;)
+require("extend") -- holds all language extensions
 local textredux = require("textredux")
 
 -- package manager modules
