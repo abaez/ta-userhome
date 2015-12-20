@@ -8,7 +8,7 @@
 -- themer
 CURRENT_FONT = "Fantasque Sans Mono"
 CURRENT_FONTSIZE = 13
-CURRENT_THEME = "base16-atelierlakeside-light"
+--CURRENT_THEME = "base16-atelierlakeside-light"
 --CURRENT_BACKGROUND = "-light"
 
 -- languages
@@ -16,6 +16,6 @@ _RUSTFMT = true  -- enable rustfmt
 _PM      = false -- disable package manager. Default == true.
 
 -- default terminal for common
-TERMINAL_STRING = "terminology"
+TERMINAL_STRING = "termite"
 
 
