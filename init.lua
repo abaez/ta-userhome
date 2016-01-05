@@ -108,5 +108,10 @@ events.connect(events.BUFFER_NEW, function()
   keys[not CURSES and 'aQ' or 'mQ'] = {io.close_all_buffers}
 end)
 
+
 --- project build commands
 textadept.run.build_commands["lakefile"] = "lake"
+
+
+--- global snippets
+snippets['shield'] = "https://img.shields.io/badge/%1(subject)-%2(status)-%3(color).svg%0"
