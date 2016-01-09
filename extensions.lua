@@ -25,7 +25,7 @@ local auto = {
   -- Somefile
   Tupfile     = 'bash',
   Vagrantfile = 'ruby',
-  Dockerfile  = 'bash',
+  Dockerfile  = 'dockerfile',
   lakefile    = 'lua',
 
   -- extra shortcuts
