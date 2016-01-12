@@ -12,6 +12,7 @@ local auto = {
   ld   = 'lua',
   yml  = 'yaml',
   moon = 'moonscript',
+  p8   = 'pico8',
 
   -- zsh
   zshrc         = 'bash',
