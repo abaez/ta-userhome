@@ -6,13 +6,14 @@
 
 --- holds all the file extensions to extend for.
 local auto = {
-  rs   = 'rust',
-  toml = 'toml',
-  lock = 'toml',
-  ld   = 'lua',
-  yml  = 'yaml',
-  moon = 'moonscript',
-  p8   = 'pico8',
+  rs    = 'rust',
+  toml  = 'toml',
+  lock  = 'toml',
+  ld    = 'lua',
+  yml   = 'yaml',
+  moon  = 'moonscript',
+  p8    = 'pico8',
+  etlua = 'etlua',
 
   -- zsh
   zshrc         = 'bash',
