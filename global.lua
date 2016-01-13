@@ -21,4 +21,5 @@ TERMINAL_STRING = "termite"
 -- global snippets
 snippets['shield'] = "https://img.shields.io/badge/%1(subject)-%2(status)-%3(color).svg%0"
 snippets['badge'] = "[![%1(name)][%2(num)i]][%2p]\n[%2i]: %3(image)\n[%2p]: %4(url)\n%0"
+snippets['baez'] = "https://keybase.io/baez%0"
 
