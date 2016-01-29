@@ -32,6 +32,7 @@ local auto = {
 
   -- extra shortcuts
   luadoc    = 'lua',
+  h         = 'ansi_c',
 }
 
 
