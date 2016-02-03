@@ -4,19 +4,17 @@
 -- @license MIT (see LICENSE)
 -- @module init
 
-
---- ## Modules
-require("global") -- global configured constants for other modules to read.
-require("extensions") -- holds all extra extensions to read
+--- ## Package Modules
 _M.ctags = require("ctags")
 require("common") -- extra functions or modules to make textadept greater. ;)
 require("extend") -- holds all language extensions
-local textredux = require("textredux")
+require("textredux")
+require("hastebin")
 
--- package manager modules
-if _PM then
-  require("hastebin")
-end
+--- ## Userhome Modules
+require("global") -- global configured constants for other modules to read.
+require("extensions") -- holds all extra extensions to read
+require("keymap")
 
 --[[ textadept-vi for curses
 if CURSES then
