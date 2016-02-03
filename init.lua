@@ -7,7 +7,7 @@
 --- ## Package Modules
 _M.ctags = require("ctags")
 local hastebin  = require("hastebin")
-local textredux = require("textredux")
+textredux = require("textredux") -- using global due to calls on keymap
 
 --- ## Extending Modules
 require("common") -- extra functions or modules to make textadept greater. ;)

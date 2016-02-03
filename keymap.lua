@@ -4,7 +4,6 @@
 -- @license MIT (see LICENSE)
 -- @module keymap
 
-
 keys.co = textredux.fs.open_file
 -- opens files in directory.
 keys["cp"] = {function()
