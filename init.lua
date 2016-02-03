@@ -6,15 +6,17 @@
 
 --- ## Package Modules
 _M.ctags = require("ctags")
+local hastebin  = require("hastebin")
+local textredux = require("textredux")
+
+--- ## Extending Modules
 require("common") -- extra functions or modules to make textadept greater. ;)
-require("extend") -- holds all language extensions
-require("textredux")
-require("hastebin")
+require("extend") -- holds all language configuration extensions
 
 --- ## Userhome Modules
 require("global") -- global configured constants for other modules to read.
 require("extensions") -- holds all extra extensions to read
-require("keymap")
+require("keymap") -- main keymaps for textadept from modules
 
 --[[ textadept-vi for curses
 if CURSES then
@@ -39,6 +41,5 @@ textadept.editing.TYPEOVER_CHARS = true
 textadept.editing.STRIP_TRAILING_SPACES = true
 textadept.editing.AUTOCOMPLETE_ALL = false
 
-
---- project build commands
+--- ## Project build commands
 textadept.run.build_commands["lakefile"] = "lake"
