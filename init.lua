@@ -9,14 +9,14 @@ _M.ctags = require("ctags")
 local hastebin  = require("hastebin")
 textredux = require("textredux") -- using global due to calls on keymap
 
---- ## Extending Modules
-require("common") -- extra functions or modules to make textadept greater. ;)
-require("extend") -- holds all language configuration extensions
-
 --- ## Userhome Modules
 require("global") -- global configured constants for other modules to read.
 require("extensions") -- holds all extra extensions to read
 require("keymap") -- main keymaps for textadept from modules
+
+--- ## Extending Modules
+require("common") -- extra functions or modules to make textadept greater. ;)
+require("extend") -- holds all language configuration extensions
 
 --[[ textadept-vi for curses
 if CURSES then
