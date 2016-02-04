@@ -30,8 +30,9 @@ each module:
 textadept to auto label. Hence the table **auto**.
 * global: here is where you would put global variables for modules or
 snippets. May end up changing the name to `user.lua` for less confusion...
-* keys: where you put all that are configured for textadept on global.
+* keymap: where you put all those global key mapping for textadept.
 * init: should be kept to a minimum of only initializing modules listed.
+* semantic: everything dealing with semantic highlighting in one nice pkg.
 * properties: all visual changes to textadept go here. May end up modulizing
 this too at some future time...
 
