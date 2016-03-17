@@ -33,6 +33,8 @@ local auto = {
   -- extra shortcuts
   luadoc    = 'lua',
   h         = 'ansi_c',
+  gitconfig = 'ini',
+  hgrc      = 'ini',
 }
 
 
