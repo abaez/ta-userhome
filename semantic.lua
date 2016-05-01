@@ -4,9 +4,6 @@
 -- @license MIT (see LICENSE)
 -- @module semantic
 
--- enable semantic highlighting
---_SEMANATIC = true
-
 --- holds languages NOT to use semantic highlighting if semantic is on.
 -- @table dont
 -- @field `language = true`: language being any one you choose.
