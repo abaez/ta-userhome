@@ -16,9 +16,7 @@ local dont = {
 
 -- semantic highligting. NEED base16 themes to work!
 events.connect(events.LEXER_LOADED, function(lang)
-  if CURSES then return end
-  if not _SEMANATIC then return end
-  if dont[lang] then return end
+  if CURSES or dont[lang] or not _SEMANATIC then return end
 
   buffer.edge_colour = buffer.property_int["color.base0A"]
 
