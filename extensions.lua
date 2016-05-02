@@ -15,6 +15,7 @@ local auto = {
   p8    = 'pico8',
   etlua = 'etlua',
   elm   = 'elm',
+  rpmspec = 'rpmspec',
 
   -- zsh
   zshrc         = 'bash',
