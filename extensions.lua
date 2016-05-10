@@ -16,6 +16,7 @@ local auto = {
   etlua = 'etlua',
   elm   = 'elm',
   spec  = 'rpmspec',
+  sol   = 'solidity',
 
   -- zsh
   zshrc         = 'bash',
