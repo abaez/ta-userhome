@@ -11,7 +11,8 @@ local dont = {
   perl = true,
   yaml = true,
   markdown = true,
-  toml = true
+  toml = true,
+  rpmspec = true,
 }
 
 -- semantic highligting. NEED base16 themes to work!
