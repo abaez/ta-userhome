@@ -14,7 +14,7 @@ CURRENT_FONTSIZE = 13
 -- languages
 _RUSTFMT = true  -- enable rustfmt
 _PM      = false -- disable package manager. Default == true.
-_RACER   = true  -- enable racer
+_RACER   = false -- enable racer
 
 -- default terminal for common
 TERMINAL_STRING = "termite"

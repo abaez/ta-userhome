@@ -43,7 +43,7 @@ buffer.tab_width = 2
 buffer.use_tabs = false
 buffer.tab_indents = true
 buffer.back_space_un_indents = true
-buffer.indentation_guides = not CURSES and buffer.IV_LOOKBOTH or buffer.IV_NONE
+buffer.indentation_guides = not CURSES and buffer.IV_REAL or buffer.IV_NONE
 
 
 --- ## Multiple Selection and Virtual Space
