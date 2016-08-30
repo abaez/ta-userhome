@@ -6,6 +6,10 @@
 
 require("semantic")
 
+-- Line padding
+buffer.extra_ascent = 2
+buffer.extra_descent = 2
+
 --- ## Wrap
 buffer.wrap_mode = buffer.WRAP_WORD
 buffer.wrap_indent_mode = buffer.WRAPINDENT_INDENT
@@ -17,8 +21,8 @@ buffer.margin_width_n[2] = not CURSES and 12 or 0
 
 --- ## Column Width
 buffer.edge_column = 79
---buffer.edge_mode   = buffer.EDGE_LINE -- line marker
-buffer.edge_mode = buffer.EDGE_BACKGROUND -- colors all after edge to colour
+buffer.edge_mode   = buffer.EDGE_LINE -- line marker
+--buffer.edge_mode = buffer.EDGE_BACKGROUND -- colors all after edge to colour
 --buffer.edge_colour = 0x0f03ff
 
 
