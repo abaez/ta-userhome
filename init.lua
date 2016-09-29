@@ -12,7 +12,7 @@ textredux = require("textredux") -- using global due to calls on keymap
 --- ## Userhome Modules
 require("global") -- global configured constants for other modules to read.
 require("extensions") -- holds all extra extensions to read
---require("keymap") -- main keymaps for textadept from modules
+require("keymap") -- main keymaps for textadept from modules
 
 --- ## Extending Modules
 require("common") -- extra functions or modules to make textadept greater. ;)
