@@ -60,9 +60,9 @@ keys['can'] =
 events.connect(events.VIEW_NEW, function()
   -- view switch with buffer switch keys.
   keys[not CURSES and 'an' or 'mn'] =
-    function() ui.goto_view(1, true) end
+    function() ui.goto_view(1) end
   keys[not CURSES and 'ap' or 'mp'] =
-    function() ui.goto_view(-1, true) end
+    function() ui.goto_view(-1) end
   -- close view
   keys[not CURSES and 'aq' or 'mq'] =
     function() view:unsplit() end
@@ -75,9 +75,9 @@ events.connect(events.BUFFER_NEW, function()
 
   -- buffer switch with view switch keys.
   keys[not CURSES and 'an' or 'mn'] =
-    function() view:goto_buffer() end
+    function() view:goto_buffer(1) end
   keys[not CURSES and 'ap' or 'mp'] =
-    function() view:goto_buffer() end
+    function() view:goto_buffer(-1) end
   -- close buffer
   keys[not CURSES and 'aq' or 'mq'] =
     function() io.close_buffer() end
