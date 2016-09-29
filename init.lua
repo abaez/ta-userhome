@@ -12,7 +12,7 @@ textredux = require("textredux") -- using global due to calls on keymap
 --- ## Userhome Modules
 require("global") -- global configured constants for other modules to read.
 require("extensions") -- holds all extra extensions to read
-require("keymap") -- main keymaps for textadept from modules
+--require("keymap") -- main keymaps for textadept from modules
 
 --- ## Extending Modules
 require("common") -- extra functions or modules to make textadept greater. ;)
@@ -36,10 +36,10 @@ textredux.hijack()
 ui.tabs = false -- always hides the tabs
 
 -- editing settings
-textadept.editing.AUTOPAIR = true
-textadept.editing.TYPEOVER_CHARS = true
-textadept.editing.STRIP_TRAILING_SPACES = true
-textadept.editing.AUTOCOMPLETE_ALL = false
+-- textadept.editing.auto_pairs = {}
+--textadept.editing.typeover_chars = {}
+textadept.editing.strip_trailing_spaces = true
+textadept.editing.autocomplete_all_words = false
 
 --- ## Project build commands
 textadept.run.build_commands["lakefile"] = "lake"
