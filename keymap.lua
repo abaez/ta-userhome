@@ -4,13 +4,15 @@
 -- @license MIT (see LICENSE)
 -- @module keymap
 
+
 keys.co = textredux.fs.open_file
 -- opens files in directory.
-keys["cp"] = {function()
-  return textredux.fs.snapopen(
-    (buffer.filename or ''):match('^.+[//]'))
-end}
-keys["cu"] = {function() return textredux.fs.snapopen(_USERHOME)end}
+keys["cp"] = function()
+  textredux.fs.snapopen(
+    (buffer.filename or ''):match('^.+[//]')
+  )
+end
+keys["cu"] = function() textredux.fs.snapopen(_USERHOME) end
 
 -- textadept-vi configuration
 keys["aV"] = {function()
@@ -22,14 +24,17 @@ end}
 
 -- ctags module keys
 keys['a&'] = _M.ctags.goto_tag
-keys['a,'] = {_M.ctags.goto_tag, nil, true} -- back
-keys['a.'] = {_M.ctags.goto_tag, nil, false} -- forward
-keys['ac'] = {textadept.editing.autocomplete, 'ctag'}
+keys['a,'] = function() _M.ctags.goto_tag(nil, true) end --back
+keys['a.'] = function() _M.ctags.goto_tag(nil, false) end -- forward
+
+keys['ac'] = function() textadept.editing.autocomplete('ctag') end
 
 -- remap keys
-keys["cE"] = textadept.editing.select_paragraph
-keys["cP"] = textadept.menu.select_command
-keys["cC"] = {textadept.snippets._cancel_current}
+keys["cE"] = function() textadept.editing.select_paragraph() end
+keys["cP"] = function() textadept.menu.select_command() end
+keys["cC"] = function() textadept.snippets._cancel_current() end
+
+
 
 -- makes a new file with location
 keys['can'] = function()
