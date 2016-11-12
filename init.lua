@@ -6,8 +6,18 @@
 
 --- ## Package Modules
 _M.ctags = require("ctags")
-local hastebin  = require("hastebin")
 textredux = require("textredux") -- using global due to calls on keymap
+
+---[[ textadept-vi for curses
+if CURSES then
+  textredux = require("textredux-vi")
+
+  local tavi = _USERHOME .. "/modules/vi"
+  package.path = tavi .. "/?.lua;" .. package.path
+  package.cpath = tavi .. "/?.so;" .. package.cpath
+  _G.vi_mode = require('vi_mode')
+end
+--]]
 
 --- ## Userhome Modules
 require("global") -- global configured constants for other modules to read.
@@ -16,16 +26,8 @@ require("keymap") -- main keymaps for textadept from modules
 
 --- ## Extending Modules
 require("common") -- extra functions or modules to make textadept greater. ;)
-require("extend") -- holds all language configuration extensions
+require("extra") -- holds all language configuration extensions
 
---[[ textadept-vi for curses
-if CURSES then
-  local tavi = _USERHOME .. "/modules/vi"
-  package.path = tavi .. "/?.lua;" .. package.path
-  package.cpath = tavi .. "/?.so;" .. package.cpath
-  _G.vi_mode = require('vi_mode')
-end
---]]
 
 --- ## Module Settings
 -- textredux configuration
