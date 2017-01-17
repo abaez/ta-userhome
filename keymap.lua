@@ -46,8 +46,6 @@ keys["cP"] =
 keys["cC"] =
   function() textadept.snippets._cancel_current() end
 
-
-
 -- makes a new file with location
 keys['can'] =
   function()
@@ -56,17 +54,25 @@ keys['can'] =
     })
   end
 
+-- DRY
+local k = {
+  up = not CURSES and 'aj' or 'mj',
+  down = not CURSES and 'ak' or 'mk',
+  close = not CURSES and 'aq' or 'mq',
+  closeall = not CURSES and 'aQ' or 'mQ'
+}
+
 --- A pair of events for changing view or buffer with the same keys.
 events.connect(events.VIEW_NEW, function()
   -- view switch with buffer switch keys.
-  keys[not CURSES and 'an' or 'mn'] =
+  keys[k.up] =
     function() ui.goto_view(1) end
-  keys[not CURSES and 'ap' or 'mp'] =
+  keys[k.down] =
     function() ui.goto_view(-1) end
   -- close view
-  keys[not CURSES and 'aq' or 'mq'] =
+  keys[k.close] =
     function() view:unsplit() end
-  keys[not CURSES and 'aQ' or 'mQ'] =
+  keys[k.closeall] =
     function() while view:unsplit() do end end
 end)
 
@@ -74,14 +80,13 @@ events.connect(events.BUFFER_NEW, function()
   if #_VIEWS ~= 1 then return end
 
   -- buffer switch with view switch keys.
-  keys[not CURSES and 'an' or 'mn'] =
+  keys[k.up] =
     function() view:goto_buffer(1) end
-  keys[not CURSES and 'ap' or 'mp'] =
+  keys[k.down] =
     function() view:goto_buffer(-1) end
   -- close buffer
-  keys[not CURSES and 'aq' or 'mq'] =
+  keys[k.close] =
     function() io.close_buffer() end
-  keys[not CURSES and 'aQ' or 'mQ'] =
+  keys[k.closeall] =
     function() io.close_all_buffers() end
 end)
-
