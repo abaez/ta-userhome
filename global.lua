@@ -7,7 +7,7 @@
 
 -- themer
 CURRENT_FONT = "Fantasque Sans Mono"
-CURRENT_FONTSIZE = 13
+CURRENT_FONTSIZE = 14
 --CURRENT_THEME = "base16-atelierlakeside-light"
 --CURRENT_BACKGROUND = "-light"
 
