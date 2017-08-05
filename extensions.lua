@@ -17,6 +17,7 @@ local auto = {
   elm   = 'elm',
   spec  = 'rpmspec',
   sol   = 'solidity',
+  tf    = 'terraform',
 
   -- zsh
   zshrc         = 'bash',
