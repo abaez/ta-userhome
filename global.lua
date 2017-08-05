@@ -19,6 +19,9 @@ _RACER   = false -- enable racer
 -- default terminal for common
 TERMINAL_STRING = "termite"
 
+-- disable nav
+NAV_DISABLE = true
+
 -- enable semantic highlighting
 _SEMANATIC = true
 

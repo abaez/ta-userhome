@@ -7,8 +7,10 @@
 --- ## Package Modules
 _M.ctags = require("ctags")
 textredux = require("textredux") -- using global due to calls on keymap
+relative = require("relative")
+require("vim-adept")
 
----[[ textadept-vi for curses
+--[[ textadept-vi for curses
 if CURSES then
   textredux = require("textredux-vi")
 
@@ -25,7 +27,7 @@ require("extensions") -- holds all extra extensions to read
 require("keymap") -- main keymaps for textadept from modules
 
 --- ## Extending Modules
-require("common") -- extra functions or modules to make textadept greater. ;)
+require("common") -- common functions or modules to make textadept greater. ;)
 require("extra") -- holds all language configuration extensions
 
 
